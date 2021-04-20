@@ -33,12 +33,28 @@ public class CashbackHackServiceTest {
         int amount = 1000;
 
         int actual = service.remain(amount);
-        int expected = 1000;
+        int expected = 0;
 
         assertEquals(expected, actual);
     }
 
+    @org.junit.jupiter.api.Test
+    void shouldJupiterLess1000(){
+        CashbackHackService service = new CashbackHackService();
+        int amount = 900;
 
+        int actual = service.remain(amount);
+        int expected = 100;
+        assertEquals(expected, actual);
+    }
+    @org.junit.jupiter.api.Test
+    void shouldJupiterMore1000(){
+        CashbackHackService service = new CashbackHackService();
+        int amount = 1100;
 
+        int actual = service.remain(amount);
+        int expected = 900;
+        assertEquals(expected, actual);
+    }
 
 }
